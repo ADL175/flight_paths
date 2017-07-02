@@ -1,6 +1,6 @@
 # flight_paths
 
-<strong>Flight paths function sourced Erik Enderlein</strong> on this project and Erik also helped guide me through this lab.
+<strong>Flight paths function and tests sourced Erik Enderlein</strong> on this project and Erik also helped guide me through this lab.
 
 <h1>Flight paths function does the following:</h1>
 

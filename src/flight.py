@@ -1,5 +1,7 @@
-from graph import Graph
-import json
+"""Flight paths function sourced from Erik Enderlein."""
+
+from graph import Graph  # flight paths will use graph and bellman_ford traversal
+import json  # needed to utilize json
 with open('src/cities_with_airports.json') as data_file:
     data = json.load(data_file)
 
@@ -31,21 +33,21 @@ def calculate_distance(point1, point2):
 
 def flight_paths(city1, city2, data=data):
     """Function sourced from Erik Enderlein, function takes two city arguments and returns distance in miles and city connections."""
-    cities_to_travel = Graph()
-    location_dict = {}
-    for city in data:
+    cities_to_travel = Graph()  # instantiate a new graph
+    location_dict = {}  # empty dictionary to hold city, location, and distances
+    for city in data:  # creates dictionary of key cities, values: lat and long
         try:
-            location_dict[city['city']]
+            location_dict[city['city']]  # check if city is already in dictionary
         except KeyError:
-            location_dict[city['city']] = city['lat_lon']
-    for city in data:
+            location_dict[city['city']] = city['lat_lon']  # add's city as key and it's lat/long as value
+    for city in data:  # adds distances between each connected city
         for destination in city['destination_cities']:
-            try:
+            try:  # adding edge and weights (distances) between cities
                 cities_to_travel.add_edge(city['city'], destination, calculate_distance(city['lat_lon'], location_dict[destination]))
-            except KeyError:
+            except KeyError:  # edge case; if connection already exists or points to city that doesn't have a lat/long
                 pass
     try:
-        to_return = cities_to_travel.bellman_ford(city1, city2)
+        to_return = cities_to_travel.bellman_ford(city1, city2)  # Bellman Ford shortest path through city
         if to_return[0] == float("inf"):
             raise KeyError("City does not exist")
         else:
@@ -56,4 +58,4 @@ def flight_paths(city1, city2, data=data):
 
 if __name__ == '__main__':
 
-    print(flight_paths("Sydney", "Seattle"))
+    print(flight_paths("Sydney", "Calgary"))
