@@ -1,3 +1,6 @@
+"""Searches JSON data for oldest and youngest bn-aires."""
+
+
 import json
 with open('forbes_data.json') as data_file:
     data = json.load(data_file)

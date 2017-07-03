@@ -1,4 +1,4 @@
-"""Tests sourced from Erik Enderlein; Test for the flight path program."""
+"""Test for the forbes program."""
 
 import pytest
 
