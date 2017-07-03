@@ -2,7 +2,7 @@
 
 from graph import Graph  # flight paths will use graph and bellman_ford traversal
 import json  # needed to utilize json
-with open('src/cities_with_airports.json') as data_file:
+with open('cities_with_airports.json') as data_file:
     data = json.load(data_file)
 
 

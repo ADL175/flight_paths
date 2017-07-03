@@ -1,4 +1,4 @@
-"""Tests sourced from Erik Enderlein; Test for the flight path program."""
+"""Tests the Forbes Search function from forbes.py"""
 
 import pytest
 
@@ -18,9 +18,7 @@ PARAMS_TABLE = [
 
 @pytest.mark.parametrize("location1, location2, result", PARAMS_TABLE)
 def test_flight(location1, location2, result):
-    """Test to ensure that the correct path is chosen.
-
-    Not testing for distances, as that is handled by code I did not write.
+    """Test to ensure that the correct path is chosen, not able to test for distances.
     """
     from flight_paths import track_path
     print(track_path(location1, location2, data))
