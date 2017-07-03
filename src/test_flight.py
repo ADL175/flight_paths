@@ -1,4 +1,4 @@
-"""Tests sourced from Erik Enderlein; Test for the flight path program."""
+"""Tests the Forbes Search function from forbes.py"""
 
 import pytest
 
